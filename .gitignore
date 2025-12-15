@@ -6,6 +6,8 @@
 # 微信开发者工具
 project.private.config.json
 *.log
+*.key
+private.*.key
 
 # 依赖
 node_modules/
