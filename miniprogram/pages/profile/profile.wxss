@@ -1,0 +1,66 @@
+/* pages/profile/profile.wxss */
+@import '../../styles/common.wxss';
+.profile-header {
+  text-align: center;
+  padding: 60rpx 40rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30rpx;
+}
+
+.avatar-text {
+  font-size: 60rpx;
+}
+
+.username {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.user-id {
+  font-size: 24rpx;
+  color: #8a8a8a;
+  display: block;
+}
+
+.menu-list {
+  margin-top: 40rpx;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.menu-icon {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+
+.menu-text {
+  flex: 1;
+  font-size: 32rpx;
+  color: #ffffff;
+}
+
+.menu-arrow {
+  font-size: 32rpx;
+  color: #8a8a8a;
+}
+
+
+
+

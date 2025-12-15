@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/trading/trading",
+    "pages/history/history",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1a1a2e",
+    "navigationBarTitleText": "黄金交易游戏",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#16213e"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#ffd700",
+    "backgroundColor": "#1a1a2e",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_active.png"
+      },
+      {
+        "pagePath": "pages/trading/trading",
+        "text": "交易",
+        "iconPath": "images/trading.png",
+        "selectedIconPath": "images/trading_active.png"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "历史",
+        "iconPath": "images/history.png",
+        "selectedIconPath": "images/history_active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/profile.png",
+        "selectedIconPath": "images/profile_active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
+
+
+
+
