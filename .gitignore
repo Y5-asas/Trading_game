@@ -1,63 +1,72 @@
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# 微信开发者工具
-project.private.config.json
-*.log
-*.key
-private.*.key
-
-# 依赖
-node_modules/
-package-lock.json
-yarn.lock
-
-# 编译输出
-miniprogram_npm/
-
-# 临时文件
-*.tmp
-*.temp
-*.swp
-*~
-
-# 压缩包
-*.tar.gz
-*.zip
-
-# Python
+# Compiled and build artifacts
+*.pyc
 __pycache__/
-*.py[cod]
-*$py.class
+*.o
+*.obj
+*.class
+*.exe
+*.dll
 *.so
-.Python
-env/
+*.a
+*.out
+
+# Dependencies
+node_modules/
 venv/
-ENV/
-.venv
-
-# IDE
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
-
-# 环境变量
+.venv/
 .env
 .env.local
+.env.*
 
-# 日志
+# Logs and temp files
 *.log
-logs/
+*.tmp
+*.swp
+*.swo
 
-# 数据库
-*.db
-*.sqlite
-*.sqlite3
+# Editors
+.vscode/
+.idea/
 
-# 其他
-*.bak
-*.backup
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
 
+# Build directories
+dist/
+build/
+target/
+.gradle/
+
+# Python specific
+.mypy_cache/
+.pytest_cache/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Compressed files
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
