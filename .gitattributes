@@ -1,0 +1,11 @@
+# Git 属性配置
+# 确保所有文件在 Git 中正确处理 UTF-8 编码
+
+* text=auto eol=lf
+*.js text eol=lf charset=utf-8
+*.json text eol=lf charset=utf-8
+*.wxml text eol=lf charset=utf-8
+*.wxss text eol=lf charset=utf-8
+*.md text eol=lf charset=utf-8
+*.js linguist-language=JavaScript
+*.wxml linguist-language=XML

@@ -23,15 +23,32 @@ function request(url, method = 'GET', data = {}, header = {}) {
       header: header,
       success(res) {
         if (res.statusCode === 200) {
-          if (res.data.code === 200) {
+          // 检查返回的是否是 HTML（ngrok 验证页面等）
+          if (typeof res.data === 'string' && res.data.trim().startsWith('<!DOCTYPE') || 
+              typeof res.data === 'string' && res.data.trim().startsWith('<html')) {
+            const error = new Error('服务器返回了 HTML 页面，可能是 ngrok 验证页面');
+            error.statusCode = 200;
+            error.isHtml = true;
+            reject(error);
+            return;
+          }
+          
+          // 检查是否是有效的 JSON 响应
+          if (res.data && typeof res.data === 'object' && res.data.code === 200) {
             resolve(res.data);
-          } else {
+          } else if (res.data && typeof res.data === 'object' && res.data.code) {
             // 业务错误
             wx.showToast({
               title: res.data.message || '请求失败',
               icon: 'none'
             });
             reject(res.data);
+          } else {
+            // 响应格式不正确
+            const error = new Error('响应格式错误');
+            error.statusCode = 200;
+            error.data = res.data;
+            reject(error);
           }
         } else if (res.statusCode === 401) {
           // 未授权，清除登录信息并跳转到登录页
@@ -40,20 +57,23 @@ function request(url, method = 'GET', data = {}, header = {}) {
             url: '/pages/login/login'
           });
           reject(res);
+        } else if (res.statusCode === 502 || res.statusCode === 404) {
+          // 502: 网关错误（接口不存在或服务器问题）
+          // 404: 接口不存在
+          const error = new Error('接口不存在或服务器错误');
+          error.statusCode = res.statusCode;
+          reject(error);
         } else {
-          wx.showToast({
-            title: '网络错误',
-            icon: 'none'
-          });
-          reject(res);
+          const error = new Error('网络错误');
+          error.statusCode = res.statusCode;
+          reject(error);
         }
       },
       fail(err) {
-        wx.showToast({
-          title: '网络连接失败',
-          icon: 'none'
-        });
-        reject(err);
+        // 网络连接失败
+        const error = new Error(err.errMsg || '网络连接失败');
+        error.statusCode = err.statusCode || 0;
+        reject(error);
       }
     });
   });
@@ -136,6 +156,13 @@ function getGameHistory(limit = 10) {
   return get('/game/history', { limit });
 }
 
+/**
+ * 获取可用币种列表（从 ClickHouse 查询）
+ */
+function getSymbols() {
+  return get('/game/symbols');
+}
+
 module.exports = {
   request,
   get,
@@ -147,7 +174,8 @@ module.exports = {
   startGame,
   executeAction,
   getGameState,
-  getGameHistory
+  getGameHistory,
+  getSymbols
 };
 
 

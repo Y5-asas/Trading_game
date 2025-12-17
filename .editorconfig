@@ -1,0 +1,19 @@
+# EditorConfig 配置文件
+# 确保所有文件使用 UTF-8 编码
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{js,json,wxml,wxss}]
+charset = utf-8
+indent_style = space
+indent_size = 2
+
+[*.md]
+charset = utf-8
+trim_trailing_whitespace = false

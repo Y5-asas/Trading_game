@@ -9,6 +9,14 @@ project.private.config.json
 *.key
 private.*.key
 
+# 本地后端/服务端代码（不纳入前端仓库）
+backend/
+server/
+api-server/
+miniprogram/backend/
+miniprogram/server/
+miniprogram/api-server/
+
 # 依赖
 node_modules/
 package-lock.json

@@ -49,8 +49,8 @@
     "swc": false,
     "disableSWC": true
   },
-  "compileType": "miniprogram",
-  "libVersion": "2.19.4",
+  "compileType": "game",
+  "libVersion": "2.30.0",
   "appid": "wxda7c5efe869c01c2",
   "projectname": "trading-game",
   "cloudfunctionRoot": "cloudfunctions/",
